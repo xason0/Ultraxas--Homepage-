@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Github, Download, Music, Bot, Store } from "lucide-react"
+import { ExternalLink, Github, Download, Music, Bot, Store, Palette } from "lucide-react"
 
 const projects = [
   {
@@ -23,6 +23,15 @@ const projects = [
     liveDemo: "#",
     github: "#",
     color: "from-blue-500 to-cyan-500",
+  },
+  {
+    title: "UX'Studio",
+    description: "Professional UI/UX design studio with modern design tools and templates",
+    icon: Palette,
+    tags: ["Design", "UI/UX", "Creative"],
+    liveDemo: "#",
+    github: "#",
+    color: "from-purple-500 to-indigo-500",
   },
   {
     title: "Telegram Music Bot",
@@ -46,7 +55,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 px-4">
+    <section id="projects" className="py-20 px-4 relative z-10">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -79,7 +88,7 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -88,9 +97,9 @@ export default function Projects() {
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
-              className="group"
+              className="group relative z-20"
             >
-              <Card className="bg-black/50 border-purple-500/20 backdrop-blur-sm hover:border-purple-500/50 transition-all duration-300 h-full">
+              <Card className="bg-black/50 border-purple-500/20 backdrop-blur-sm hover:border-purple-500/50 transition-all duration-300 h-full relative z-20">
                 <CardHeader>
                   <div className="flex items-center space-x-3 mb-4">
                     <div className={`p-4 rounded-full bg-gradient-to-r ${project.color} shadow-lg`}>
@@ -114,18 +123,16 @@ export default function Projects() {
                   <div className="flex space-x-3">
                     <Button
                       size="sm"
-                      className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 flex-1 rounded-full"
-                      style={{
-                        boxShadow: "0 0 15px rgba(147, 51, 234, 0.4)",
-                      }}
+                      onClick={() => window.open(project.liveDemo, "_blank")}
+                      className="bg-black hover:bg-gray-800 text-white border border-purple-500/50 flex-1 rounded-full relative z-30 cursor-pointer"
                     >
                       <ExternalLink className="mr-2 h-4 w-4" />
                       Live Demo
                     </Button>
                     <Button
                       size="sm"
-                      variant="outline"
-                      className="bg-black/50 text-white border-purple-500/50 hover:bg-purple-600/20 flex-1 rounded-full"
+                      onClick={() => window.open(project.github, "_blank")}
+                      className="bg-black hover:bg-gray-800 text-white border border-purple-500/50 flex-1 rounded-full relative z-30 cursor-pointer"
                     >
                       <Github className="mr-2 h-4 w-4" />
                       GitHub

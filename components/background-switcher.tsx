@@ -101,7 +101,7 @@ const backgroundOptions: BackgroundOption[] = [
 
 export default function BackgroundSwitcher() {
   const [isOpen, setIsOpen] = useState(false)
-  const [currentBackground, setCurrentBackground] = useState<BackgroundType>("matrix")
+  const [currentBackground, setCurrentBackground] = useState<BackgroundType>("brain")
   const { toast } = useToast()
 
   useEffect(() => {
@@ -111,7 +111,7 @@ export default function BackgroundSwitcher() {
       setCurrentBackground(savedBackground)
       applyBackground(savedBackground)
     } else {
-      applyBackground("matrix")
+      applyBackground("brain")
     }
   }, [])
 
@@ -164,7 +164,7 @@ export default function BackgroundSwitcher() {
       >
         <Button
           onClick={() => setIsOpen(true)}
-          className="w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-purple-400/30"
+          className="w-14 h-14 rounded-full bg-black hover:bg-gray-800 text-white border border-purple-500/50 shadow-lg hover:shadow-xl transition-all duration-300"
           style={{ boxShadow: "0 0 20px rgba(147, 51, 234, 0.5)" }}
         >
           <Palette className="w-6 h-6 text-white" />

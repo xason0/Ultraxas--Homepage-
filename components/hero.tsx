@@ -33,7 +33,7 @@ export default function Hero({ onChatClick }: HeroProps) {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20 px-4">
+    <section className="min-h-screen flex items-center justify-center pt-20 px-4 relative z-10">
       <div className="text-center max-w-4xl mx-auto">
         {/* Logo */}
         <motion.div
@@ -214,12 +214,12 @@ export default function Hero({ onChatClick }: HeroProps) {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 2 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 relative z-20"
         >
           <Button
             onClick={scrollToProjects}
             size="lg"
-            className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 px-8 py-4 text-lg rounded-full"
+            className="bg-black hover:bg-gray-800 text-white border border-purple-500/50 px-8 py-4 text-lg rounded-full relative z-30 cursor-pointer"
             style={{
               boxShadow: "0 0 30px rgba(147, 51, 234, 0.6)",
             }}
@@ -230,8 +230,7 @@ export default function Hero({ onChatClick }: HeroProps) {
           <Button
             onClick={onChatClick}
             size="lg"
-            variant="outline"
-            className="bg-black/50 text-white border-purple-500 hover:bg-purple-600/20 px-8 py-4 text-lg rounded-full"
+            className="bg-black hover:bg-gray-800 text-white border border-purple-500/50 px-8 py-4 text-lg rounded-full relative z-30 cursor-pointer"
             style={{
               boxShadow: "0 0 20px rgba(147, 51, 234, 0.4)",
             }}
@@ -246,7 +245,7 @@ export default function Hero({ onChatClick }: HeroProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3 }}
-          className="flex flex-col items-center"
+          className="flex flex-col items-center relative z-20"
         >
           <p className="text-gray-400 mb-2">Scroll to explore</p>
           <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}>

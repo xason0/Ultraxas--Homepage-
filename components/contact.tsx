@@ -132,7 +132,7 @@ export default function Contact() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 py-4 text-lg rounded-full"
+                    className="w-full bg-black hover:bg-gray-800 text-white border border-purple-500/50 py-4 text-lg rounded-full"
                     style={{
                       boxShadow: "0 0 30px rgba(147, 51, 234, 0.6)",
                     }}

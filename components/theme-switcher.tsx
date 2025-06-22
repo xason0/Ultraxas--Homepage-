@@ -28,7 +28,6 @@ interface Theme {
   icon: React.ReactNode
   emoji: string
   description: string
-  preview: string
 }
 
 const themes: Theme[] = [
@@ -38,7 +37,6 @@ const themes: Theme[] = [
     icon: <Moon className="w-4 h-4" />,
     emoji: "🌙",
     description: "Deep black with neon accents",
-    preview: "bg-gradient-to-r from-gray-900 to-purple-900",
   },
   {
     id: "light",
@@ -46,7 +44,6 @@ const themes: Theme[] = [
     icon: <Sun className="w-4 h-4" />,
     emoji: "☀️",
     description: "Clean white with soft shadows",
-    preview: "bg-gradient-to-r from-white to-gray-100",
   },
   {
     id: "rainbow",
@@ -54,7 +51,6 @@ const themes: Theme[] = [
     icon: <Zap className="w-4 h-4" />,
     emoji: "🌈",
     description: "Animated rainbow gradients",
-    preview: "bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500",
   },
   {
     id: "cyberpunk",
@@ -62,7 +58,6 @@ const themes: Theme[] = [
     icon: <Cpu className="w-4 h-4" />,
     emoji: "🤖",
     description: "Purple/pink glow, circuit style",
-    preview: "bg-gradient-to-r from-purple-600 to-pink-600",
   },
   {
     id: "amoled",
@@ -70,7 +65,6 @@ const themes: Theme[] = [
     icon: <Monitor className="w-4 h-4" />,
     emoji: "⚫",
     description: "Pure black, high contrast",
-    preview: "bg-gradient-to-r from-black to-gray-800",
   },
   {
     id: "terminal",
@@ -78,7 +72,6 @@ const themes: Theme[] = [
     icon: <Terminal className="w-4 h-4" />,
     emoji: "💚",
     description: "Green-on-black matrix style",
-    preview: "bg-gradient-to-r from-black to-green-900",
   },
   {
     id: "gold",
@@ -86,7 +79,6 @@ const themes: Theme[] = [
     icon: <Crown className="w-4 h-4" />,
     emoji: "👑",
     description: "Black with golden accents",
-    preview: "bg-gradient-to-r from-black to-yellow-600",
   },
   {
     id: "ice",
@@ -94,7 +86,6 @@ const themes: Theme[] = [
     icon: <Snowflake className="w-4 h-4" />,
     emoji: "❄️",
     description: "Cool tones, glassmorphism",
-    preview: "bg-gradient-to-r from-blue-100 to-cyan-200",
   },
   {
     id: "nature",
@@ -102,7 +93,6 @@ const themes: Theme[] = [
     icon: <Leaf className="w-4 h-4" />,
     emoji: "🌿",
     description: "Soft greens, eco-friendly",
-    preview: "bg-gradient-to-r from-green-100 to-emerald-200",
   },
   {
     id: "fire",
@@ -110,7 +100,6 @@ const themes: Theme[] = [
     icon: <Flame className="w-4 h-4" />,
     emoji: "🔥",
     description: "Red/orange gradients, fiery",
-    preview: "bg-gradient-to-r from-red-500 to-orange-500",
   },
 ]
 
@@ -251,7 +240,29 @@ export default function ThemeSwitcher() {
                       : "border-gray-600 bg-gray-800/50 hover:border-purple-500/50"
                   }`}
                 >
-                  <div className={`w-full h-8 rounded-lg mb-2 ${theme.preview}`} />
+                  <div
+                    className={`w-full h-8 rounded-lg mb-2 bg-gradient-to-r ${
+                      theme.id === "dark"
+                        ? "from-gray-900 to-purple-900"
+                        : theme.id === "light"
+                          ? "from-white to-gray-100"
+                          : theme.id === "rainbow"
+                            ? "from-purple-500 via-pink-500 to-cyan-500"
+                            : theme.id === "cyberpunk"
+                              ? "from-purple-600 to-pink-600"
+                              : theme.id === "amoled"
+                                ? "from-black to-gray-800"
+                                : theme.id === "terminal"
+                                  ? "from-black to-green-900"
+                                  : theme.id === "gold"
+                                    ? "from-black to-yellow-600"
+                                    : theme.id === "ice"
+                                      ? "from-blue-100 to-cyan-200"
+                                      : theme.id === "nature"
+                                        ? "from-green-100 to-emerald-200"
+                                        : "from-red-500 to-orange-500"
+                    }`}
+                  />
                   <div className="flex items-center space-x-2">
                     {theme.icon}
                     <span className="text-sm font-medium text-white truncate">{theme.name}</span>
@@ -271,7 +282,7 @@ export default function ThemeSwitcher() {
         <Button
           onClick={() => setIsOpen(!isOpen)}
           size="lg"
-          className="w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 shadow-lg"
+          className="w-14 h-14 rounded-full bg-black hover:bg-gray-800 text-white border border-purple-500/50 shadow-lg"
           style={{
             boxShadow: "0 0 30px rgba(147, 51, 234, 0.6)",
           }}

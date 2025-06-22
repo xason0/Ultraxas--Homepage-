@@ -35,7 +35,7 @@ const botResponses: { [key: string]: string } = {
   "how do i access your bots":
     "You can access our bots through various platforms including Telegram, our website, and dedicated applications. Each bot is designed for specific purposes like music streaming, file downloading, and AI assistance.",
   "tell me about your latest project":
-    "Our latest projects include the UltraTube Downloader, UltraXas Store, Telegram Music Bot, and the UltraXas Assistant. Each project showcases our commitment to innovation and user experience.",
+    "Our latest projects include the UltraTube Downloader, UltraXas Store, UX'Studio, Telegram Music Bot, and the UltraXas Assistant. Each project showcases our commitment to innovation and user experience.",
   default:
     "Thank you for your question! I'm the UltraXas Assistant. I can help you learn more about our company, projects, and services. Feel free to ask me anything about UltraXas Dev!",
 }
@@ -112,14 +112,19 @@ export default function Chatbot({ isOpen, onClose, onToggle }: ChatbotProps) {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
-            className="fixed bottom-6 right-6 z-50"
+            className="fixed bottom-6 right-6 z-[100]"
           >
             <Button
-              onClick={onToggle}
+              onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                onToggle()
+              }}
               size="lg"
-              className="rounded-full w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 shadow-lg"
+              className="rounded-full w-16 h-16 bg-black hover:bg-gray-800 text-white border border-purple-500/50 shadow-lg cursor-pointer relative z-[100]"
               style={{
                 boxShadow: "0 0 30px rgba(147, 51, 234, 0.6)",
+                pointerEvents: "auto",
               }}
             >
               <MessageCircle className="h-6 w-6" />
@@ -135,13 +140,14 @@ export default function Chatbot({ isOpen, onClose, onToggle }: ChatbotProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-end md:items-center justify-center p-4"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[90] flex items-end md:items-center justify-center p-4"
+            style={{ pointerEvents: "auto" }}
           >
             <motion.div
               initial={{ y: 100, opacity: 0, scale: 0.9 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: 100, opacity: 0, scale: 0.9 }}
-              className="w-full max-w-md h-[600px] md:h-[500px]"
+              className="w-full max-w-md h-[600px] md:h-[500px] relative z-[95]"
             >
               <Card className="bg-black/90 border-purple-500/30 backdrop-blur-md h-full flex flex-col">
                 <CardHeader className="flex-shrink-0 border-b border-purple-500/20">
@@ -152,7 +158,17 @@ export default function Chatbot({ isOpen, onClose, onToggle }: ChatbotProps) {
                       </div>
                       <span>UltraXas Assistant</span>
                     </CardTitle>
-                    <Button onClick={onClose} size="sm" variant="ghost" className="text-gray-400 hover:text-white">
+                    <Button
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        onClose()
+                      }}
+                      size="sm"
+                      variant="ghost"
+                      className="text-gray-400 hover:text-white cursor-pointer relative z-[100]"
+                      style={{ pointerEvents: "auto" }}
+                    >
                       <X className="h-5 w-5" />
                     </Button>
                   </div>
@@ -172,7 +188,7 @@ export default function Chatbot({ isOpen, onClose, onToggle }: ChatbotProps) {
                           className={`max-w-[80%] p-3 rounded-lg ${
                             message.isBot
                               ? "bg-purple-600/20 text-white border border-purple-500/30"
-                              : "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                              : "bg-black text-white border border-purple-500/50"
                           }`}
                         >
                           <p className="text-sm">{message.text}</p>
@@ -206,10 +222,14 @@ export default function Chatbot({ isOpen, onClose, onToggle }: ChatbotProps) {
                         {quickReplies.map((reply) => (
                           <Button
                             key={reply}
-                            onClick={() => handleQuickReply(reply)}
+                            onClick={(e) => {
+                              e.preventDefault()
+                              e.stopPropagation()
+                              handleQuickReply(reply)
+                            }}
                             size="sm"
-                            variant="outline"
-                            className="bg-black/50 text-white border-purple-500/30 hover:bg-purple-600/20 text-left justify-start text-xs rounded-full"
+                            className="bg-black hover:bg-gray-800 text-white border border-purple-500/30 text-left justify-start text-xs rounded-full cursor-pointer"
+                            style={{ pointerEvents: "auto" }}
                           >
                             {reply}
                           </Button>
@@ -229,12 +249,18 @@ export default function Chatbot({ isOpen, onClose, onToggle }: ChatbotProps) {
                         className="bg-black/50 border-purple-500/30 text-white placeholder-gray-400 focus:border-purple-500"
                         style={{
                           boxShadow: "0 0 10px rgba(147, 51, 234, 0.2)",
+                          pointerEvents: "auto",
                         }}
                       />
                       <Button
-                        onClick={() => handleSendMessage(inputValue)}
+                        onClick={(e) => {
+                          e.preventDefault()
+                          e.stopPropagation()
+                          handleSendMessage(inputValue)
+                        }}
                         size="sm"
-                        className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 rounded-full w-10 h-10 p-0"
+                        className="bg-black hover:bg-gray-800 text-white border border-purple-500/50 rounded-full w-10 h-10 p-0 cursor-pointer"
+                        style={{ pointerEvents: "auto" }}
                       >
                         <Send className="h-4 w-4" />
                       </Button>
