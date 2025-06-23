@@ -27,6 +27,9 @@ function initializeWebsite() {
   initializeChatbot()
 
   console.log("UltraXas Dev website initialized successfully!")
+
+  // Ensure buttons stay visible
+  ensureButtonVisibility()
 }
 
 // Theme Management
@@ -486,7 +489,6 @@ function openSocialModal() {
   const modal = document.getElementById("social-modal")
   if (modal) {
     modal.classList.add("active")
-    document.body.style.overflow = "hidden"
   }
 }
 
@@ -494,7 +496,6 @@ function closeSocialModal() {
   const modal = document.getElementById("social-modal")
   if (modal) {
     modal.classList.remove("active")
-    document.body.style.overflow = ""
   }
 }
 
@@ -516,8 +517,7 @@ function openChatbot() {
 
   if (chatbot && chatButton) {
     chatbot.classList.add("active")
-    chatButton.classList.add("hidden")
-    document.body.style.overflow = "hidden"
+    chatButton.style.display = "none"
 
     // Focus on input
     const input = document.getElementById("chatbot-input-field")
@@ -533,8 +533,7 @@ function closeChatbot() {
 
   if (chatbot && chatButton) {
     chatbot.classList.remove("active")
-    chatButton.classList.remove("hidden")
-    document.body.style.overflow = ""
+    chatButton.style.display = "flex"
   }
 }
 
@@ -791,3 +790,20 @@ setInterval(() => {
 }, 3600000) // 1 hour
 
 console.log("UltraXas Dev - Static Website Loaded Successfully! 🚀")
+
+// Button Visibility Protection
+function ensureButtonVisibility() {
+  const buttons = document.querySelectorAll(
+    "button, .hero-btn, .project-btn, .connect-btn, .submit-btn, .chat-button, .theme-btn, .background-btn, .scroll-top-btn",
+  )
+
+  buttons.forEach((button) => {
+    button.style.opacity = "1"
+    button.style.visibility = "visible"
+    button.style.pointerEvents = "auto"
+    button.style.filter = "none"
+  })
+}
+
+// Call this function periodically to ensure buttons stay visible
+setInterval(ensureButtonVisibility, 1000)
