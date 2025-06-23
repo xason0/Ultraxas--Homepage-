@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UltraXas Dev - Turning Vision into Code</title>
+    <meta name="description" content="UltraXas Dev - Cutting-edge technology solutions, AI bots, and futuristic tools that make technology accessible to everyone.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/ultraxas-logo.png">
+</head>
+<body class="bg-brain">
+    <!-- Background Canvas -->
+    <canvas id="background-canvas"></canvas>
+
+    <!-- Floating Elements -->
+    <div class="floating-elements">
+        <div class="floating-particle" style="--delay: 0s; --duration: 8s;"></div>
+        <div class="floating-particle" style="--delay: 2s; --duration: 12s;"></div>
+        <div class="floating-particle" style="--delay: 4s; --duration: 10s;"></div>
+        <div class="floating-particle" style="--delay: 6s; --duration: 14s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-wrapper">
+                    <div class="logo-ring"></div>
+                    <img src="images/ultraxas-logo.png" alt="UltraXas Dev Logo" class="logo-image">
+                </div>
+                <span class="logo-text">UltraXas Dev</span>
+            </div>
+            <div class="nav-links">
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="connect-btn" onclick="openSocialModal()">Connect With Us</button>
+            </div>
+            <div class="nav-mobile">
+                <button class="connect-btn-mobile" onclick="openSocialModal()">Connect</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <div class="hero-logo-wrapper">
+                    <div class="hero-logo-ring-1"></div>
+                    <div class="hero-logo-ring-2"></div>
+                    <div class="hero-logo-glow"></div>
+                    <img src="images/ultraxas-logo.png" alt="UltraXas Dev Logo" class="hero-logo-image">
+                    <!-- Floating particles -->
+                    <div class="hero-particles">
+                        <div class="hero-particle" style="--angle: 0deg;"></div>
+                        <div class="hero-particle" style="--angle: 45deg;"></div>
+                        <div class="hero-particle" style="--angle: 90deg;"></div>
+                        <div class="hero-particle" style="--angle: 135deg;"></div>
+                        <div class="hero-particle" style="--angle: 180deg;"></div>
+                        <div class="hero-particle" style="--angle: 225deg;"></div>
+                        <div class="hero-particle" style="--angle: 270deg;"></div>
+                        <div class="hero-particle" style="--angle: 315deg;"></div>
+                    </div>
+                </div>
+            </div>
+            <h1 class="hero-title">UltraXas Dev</h1>
+            <div class="hero-subtitle">
+                <span id="typing-text"></span>
+                <span class="cursor">|</span>
+            </div>
+            <div class="hero-buttons">
+                <button class="hero-btn primary" onclick="scrollToSection('projects')">
+                    <span class="btn-icon">🚀</span>
+                    Explore Projects
+                </button>
+                <button class="hero-btn secondary" onclick="openChatbot()">
+                    <span class="btn-icon">💬</span>
+                    Chat with Assistant
+                </button>
+            </div>
+            <div class="scroll-indicator">
+                <p>Scroll to explore</p>
+                <div class="scroll-arrow">↓</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Cutting-edge solutions that push the boundaries of technology</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon red-gradient">📥</div>
+                    <h3 class="project-title">UltraTube Downloader</h3>
+                    <p class="project-description">Advanced YouTube video and audio downloader with multiple format support</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">GUI</span>
+                        <span class="tag">Media Processing</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="project-btn primary" onclick="window.open('#', '_blank')">
+                            <span class="btn-icon">🔗</span>
+                            Live Demo
+                        </button>
+                        <button class="project-btn secondary" onclick="window.open('#', '_blank')">
+                            <span class="btn-icon">📁</span>
+                            GitHub
+                        </button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon blue-gradient">🛒</div>
+                    <h3 class="project-title">UltraXas Store</h3>
+                    <p class="project-description">Modern e-commerce platform with AI-powered recommendations</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">AI</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="project-btn primary" onclick="window.open('https://ultraxas-store.vercel.app', '_blank')">
+                            <span class="btn-icon">🔗</span>
+                            Live Demo
+                        </button>
+                        <button class="project-btn secondary" onclick="window.open('#', '_blank')">
+                            <span class="btn-icon">📁</span>
+                            GitHub
+                        </button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon purple-gradient">🎨</div>
+                    <h3 class="project-title">UX'Studio</h3>
+                    <p class="project-description">Professional UI/UX design studio with modern design tools and templates</p>
+                    <div class="project-tags">
+                        <span class="tag">Design</span>
+                        <span class="tag">UI/UX</span>
+                        <span class="tag">Creative</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="project-btn primary" onclick="window.open('https://ux-studio-ultraxas.vercel.app', '_blank')">
+                            <span class="btn-icon">🔗</span>
+                            Live Demo
+                        </button>
+                        <button class="project-btn secondary" onclick="window.open('#', '_blank')">
+                            <span class="btn-icon">📁</span>
+                            GitHub
+                        </button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon green-gradient">🎵</div>
+                    <h3 class="project-title">Telegram Music Bot</h3>
+                    <p class="project-description">Intelligent music bot for Telegram with playlist management</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Telegram API</span>
+                        <span class="tag">Music</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="project-btn primary" onclick="window.open('https://t.me/UltraTube_Downloader_bot', '_blank')">
+                            <span class="btn-icon">🔗</span>
+                            Live Demo
+                        </button>
+                        <button class="project-btn secondary" onclick="window.open('#', '_blank')">
+                            <span class="btn-icon">📁</span>
+                            GitHub
+                        </button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon pink-gradient">🤖</div>
+                    <h3 class="project-title">UltraXas Assistant</h3>
+                    <p class="project-description">AI-powered virtual assistant with natural language processing</p>
+                    <div class="project-tags">
+                        <span class="tag">AI</span>
+                        <span class="tag">NLP</span>
+                        <span class="tag">Chatbot</span>
+                    </div>
+                    <div class="project-buttons">
+                        <button class="project-btn primary" onclick="window.open('https://t.me/UltraXas_bot', '_blank')">
+                            <span class="btn-icon">🔗</span>
+                            Live Demo
+                        </button>
+                        <button class="project-btn secondary" onclick="window.open('#', '_blank')">
+                            <span class="btn-icon">📁</span>
+                            GitHub
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About UltraXas Dev</h2>
+                <p class="section-subtitle">Founded by Manasseh Amoako, we're on a mission to create the future of technology</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">👤</div>
+                    <h3 class="about-title">Founder</h3>
+                    <h4 class="about-name">Manasseh Amoako</h4>
+                    <p class="about-text">Visionary developer and tech entrepreneur passionate about creating innovative solutions that bridge the gap between complex technology and user-friendly experiences.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">📅</div>
+                    <h3 class="about-title">Timeline</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot purple"></div>
+                            <span class="timeline-year">2025</span>
+                            <span class="timeline-text">Founded UltraXas Dev</span>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot pink"></div>
+                            <span class="timeline-year">Present</span>
+                            <span class="timeline-text">Building the future of tech</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🎯</div>
+                    <h3 class="about-title">Mission</h3>
+                    <p class="about-text">To democratize advanced technology by creating bots, AI solutions, and futuristic tools that are accessible to everyone.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">👁️</div>
+                    <h3 class="about-title">Vision</h3>
+                    <p class="about-text">To be at the forefront of technological innovation, creating solutions that not only solve today's problems but anticipate tomorrow's needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Ready to bring your vision to life? Let's start a conversation</p>
+            </div>
+            <div class="contact-form-wrapper">
+                <form class="contact-form" onsubmit="handleContactSubmit(event)">
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <span class="input-icon">👤</span>
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <span class="input-icon">📧</span>
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <span class="input-icon">💬</span>
+                            <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-icon">📤</span>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">©️ 2025 UltraXas Dev – Built to Inspire</p>
+            <button class="scroll-top-btn" onclick="scrollToTop()">↑</button>
+            <p class="footer-tagline">Turning Vision into Code • Making Technology Beautiful</p>
+        </div>
+    </footer>
+
+    <!-- Social Modal -->
+    <div id="social-modal" class="modal">
+        <div class="modal-backdrop" onclick="closeSocialModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Connect With UltraXas</h3>
+                <button class="modal-close" onclick="closeSocialModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <a href="https://t.me/UltraXas_bot" target="_blank" class="social-link blue-gradient">
+                    <div class="social-icon">💬</div>
+                    <div class="social-info">
+                        <h4>Scan Session</h4>
+                        <p>Connect with our AI assistant</p>
+                    </div>
+                    <span class="external-icon">🔗</span>
+                </a>
+                <a href="https://t.me/UltraTube_Downloader_bot" target="_blank" class="social-link green-gradient">
+                    <div class="social-icon">📥</div>
+                    <div class="social-info">
+                        <h4>Download Bot</h4>
+                        <p>Get files and media instantly</p>
+                    </div>
+                    <span class="external-icon">🔗</span>
+                </a>
+                <a href="https://ultraxas-store.vercel.app" target="_blank" class="social-link purple-gradient">
+                    <div class="social-icon">🛒</div>
+                    <div class="social-info">
+                        <h4>Visit Store</h4>
+                        <p>Explore our digital products</p>
+                    </div>
+                    <span class="external-icon">🔗</span>
+                </a>
+                <a href="https://ux-studio-ultraxas.vercel.app" target="_blank" class="social-link orange-gradient">
+                    <div class="social-icon">🎨</div>
+                    <div class="social-info">
+                        <h4>UX Studio</h4>
+                        <p>Professional design services</p>
+                    </div>
+                    <span class="external-icon">🔗</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot -->
+    <div id="chatbot" class="chatbot">
+        <div class="chatbot-backdrop" onclick="closeChatbot()"></div>
+        <div class="chatbot-container">
+            <div class="chatbot-header">
+                <div class="chatbot-title">
+                    <div class="chatbot-avatar">🤖</div>
+                    <span>UltraXas Assistant</span>
+                </div>
+                <button class="chatbot-close" onclick="closeChatbot()">×</button>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot-message">
+                    <div class="message-content">Hello! I'm the UltraXas Assistant. How can I help you today?</div>
+                </div>
+            </div>
+            <div class="chatbot-quick-replies" id="quick-replies">
+                <p class="quick-replies-title">Quick questions:</p>
+                <button class="quick-reply" onclick="sendQuickReply('What is UltraXas Dev?')">What is UltraXas Dev?</button>
+                <button class="quick-reply" onclick="sendQuickReply('Who is Manasseh Amoako?')">Who is Manasseh Amoako?</button>
+                <button class="quick-reply" onclick="sendQuickReply('How do I access your bots?')">How do I access your bots?</button>
+                <button class="quick-reply" onclick="sendQuickReply('Tell me about your latest project')">Tell me about your latest project</button>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbot-input-field" placeholder="Type your message..." onkeypress="handleChatKeyPress(event)">
+                <button class="chatbot-send" onclick="sendMessage()">📤</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Chat Button -->
+    <button id="chat-button" class="chat-button" onclick="openChatbot()">💬</button>
+
+    <!-- Theme Switcher -->
+    <div class="theme-switcher">
+        <button class="theme-btn" onclick="toggleThemePanel()">🎨</button>
+        <div id="theme-panel" class="theme-panel">
+            <div class="theme-header">
+                <h3>Choose Theme</h3>
+                <button class="auto-theme-btn" onclick="toggleAutoTheme()" id="auto-theme-btn">⏰ Auto</button>
+            </div>
+            <div class="theme-grid">
+                <button class="theme-option" data-theme="dark" onclick="changeTheme('dark')">
+                    <div class="theme-preview dark-preview"></div>
+                    <span>🌙 Dark Mode</span>
+                </button>
+                <button class="theme-option" data-theme="light" onclick="changeTheme('light')">
+                    <div class="theme-preview light-preview"></div>
+                    <span>☀️ Light Mode</span>
+                </button>
+                <button class="theme-option" data-theme="cyberpunk" onclick="changeTheme('cyberpunk')">
+                    <div class="theme-preview cyberpunk-preview"></div>
+                    <span>🤖 Cyberpunk</span>
+                </button>
+                <button class="theme-option" data-theme="terminal" onclick="changeTheme('terminal')">
+                    <div class="theme-preview terminal-preview"></div>
+                    <span>💚 Terminal</span>
+                </button>
+            </div>
+            <p class="theme-hint">Press Ctrl + T to cycle themes</p>
+        </div>
+        <div class="theme-indicator" id="theme-indicator">🧠</div>
+    </div>
+
+    <!-- Background Switcher -->
+    <div class="background-switcher">
+        <button class="background-btn" onclick="toggleBackgroundPanel()">🌈</button>
+        <div id="background-panel" class="background-panel">
+            <div class="background-header">
+                <h3>Background Themes</h3>
+                <button class="background-close" onclick="toggleBackgroundPanel()">×</button>
+            </div>
+            <div class="background-current">
+                <p>Current Background:</p>
+                <div class="current-bg-info">
+                    <div class="current-bg-preview" id="current-bg-preview"></div>
+                    <div>
+                        <span id="current-bg-name">🤖 AI Brain Pulse</span>
+                        <p id="current-bg-desc">Glowing AI brain pulse loop</p>
+                    </div>
+                </div>
+            </div>
+            <div class="background-grid">
+                <button class="background-option" data-bg="brain" onclick="changeBackground('brain')">
+                    <div class="bg-preview brain-preview"></div>
+                    <div class="bg-info">
+                        <span>🤖 AI Brain Pulse</span>
+                        <p>Glowing AI brain pulse loop</p>
+                    </div>
+                </button>
+                <button class="background-option" data-bg="matrix" onclick="changeBackground('matrix')">
+                    <div class="bg-preview matrix-preview"></div>
+                    <div class="bg-info">
+                        <span>🟢 Matrix Rain</span>
+                        <p>Falling green binary code</p>
+                    </div>
+                </button>
+                <button class="background-option" data-bg="neural" onclick="changeBackground('neural')">
+                    <div class="bg-preview neural-preview"></div>
+                    <div class="bg-info">
+                        <span>🧠 Neural Network</span>
+                        <p>AI mesh with connecting nodes</p>
+                    </div>
+                </button>
+                <button class="background-option" data-bg="particles" onclick="changeBackground('particles')">
+                    <div class="bg-preview particles-preview"></div>
+                    <div class="bg-info">
+                        <span>✨ Particle Field</span>
+                        <p>Connected data network dots</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
