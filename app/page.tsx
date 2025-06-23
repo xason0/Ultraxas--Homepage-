@@ -16,9 +16,15 @@ import BackgroundRenderer from "@/components/background-renderer"
 
 export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false)
+  const [isSocialModalOpen, setIsSocialModalOpen] = useState(false)
 
   const handleChatToggle = () => setIsChatOpen((prev) => !prev)
   const handleChatClose = () => setIsChatOpen(false)
+  const handleChatOpen = () => setIsChatOpen(true)
+
+  const handleSocialModalToggle = () => setIsSocialModalOpen((prev) => !prev)
+  const handleSocialModalClose = () => setIsSocialModalOpen(false)
+
   return (
     <div className="min-h-screen relative overflow-x-hidden">
       {/* Animated Background */}
@@ -28,8 +34,8 @@ export default function Home() {
       <FloatingElements />
 
       {/* Main Content */}
-      <Navbar />
-      <Hero />
+      <Navbar onSocialClick={handleSocialModalToggle} />
+      <Hero onChatClick={handleChatOpen} />
       <Projects />
       <About />
       <TechStack />
@@ -38,7 +44,7 @@ export default function Home() {
 
       {/* Floating Components */}
       <Chatbot isOpen={isChatOpen} onToggle={handleChatToggle} onClose={handleChatClose} />
-      <SocialModal />
+      <SocialModal isOpen={isSocialModalOpen} onClose={handleSocialModalClose} />
       <ThemeSwitcher />
       <BackgroundSwitcher />
     </div>

@@ -120,7 +120,7 @@ export default function Navbar({ onSocialClick }: NavbarProps) {
           </button>
           <Button
             onClick={onSocialClick}
-            className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 rounded-full px-6 py-2"
+            className="bg-black hover:bg-gray-800 text-white border border-purple-500/50 rounded-full px-6 py-2"
             style={{
               boxShadow: "0 0 20px rgba(147, 51, 234, 0.5)",
             }}
@@ -134,7 +134,7 @@ export default function Navbar({ onSocialClick }: NavbarProps) {
           <Button
             onClick={onSocialClick}
             size="sm"
-            className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 rounded-full"
+            className="bg-black hover:bg-gray-800 text-white border border-purple-500/50 rounded-full"
           >
             Connect
           </Button>

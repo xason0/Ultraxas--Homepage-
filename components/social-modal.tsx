@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { X, Facebook, MessageCircle, Camera, Music } from "lucide-react"
+import { X, ExternalLink, MessageCircle, Download, ShoppingBag, Palette } from "lucide-react"
 
 interface SocialModalProps {
   isOpen: boolean
@@ -12,111 +12,96 @@ interface SocialModalProps {
 
 const socialLinks = [
   {
-    name: "Facebook",
-    url: "https://www.facebook.com/share/18s1e9kPKz/",
-    icon: Facebook,
-    color: "from-blue-600 to-blue-700",
-    description: "Follow us on Facebook",
-  },
-  {
-    name: "WhatsApp",
-    url: "https://wa.me/447405817307",
+    name: "Scan Session",
+    description: "Connect with our AI assistant",
     icon: MessageCircle,
-    color: "from-green-600 to-green-700",
-    description: "Chat with us on WhatsApp",
+    url: "https://t.me/UltraXas_bot",
+    color: "from-blue-500 to-cyan-500",
   },
   {
-    name: "Snapchat",
-    url: "https://www.snapchat.com/add/xasonq?share_id=9X1El13kKZw&locale=en-GB",
-    icon: Camera,
-    color: "from-yellow-500 to-yellow-600",
-    description: "Add us on Snapchat",
+    name: "Download Bot",
+    description: "Get files and media instantly",
+    icon: Download,
+    url: "https://t.me/UltraTube_Downloader_bot",
+    color: "from-green-500 to-emerald-500",
   },
   {
-    name: "TikTok",
-    url: "https://www.tiktok.com/@ultraxasdev",
-    icon: Music,
-    color: "from-pink-600 to-red-600",
-    description: "Follow us on TikTok",
+    name: "Visit Store",
+    description: "Explore our digital products",
+    icon: ShoppingBag,
+    url: "https://ultraxas-store.vercel.app",
+    color: "from-purple-500 to-pink-500",
+  },
+  {
+    name: "UX Studio",
+    description: "Professional design services",
+    icon: Palette,
+    url: "https://ux-studio-ultraxas.vercel.app",
+    color: "from-orange-500 to-red-500",
   },
 ]
 
 export default function SocialModal({ isOpen, onClose }: SocialModalProps) {
-  const handleSocialClick = (url: string) => {
-    window.open(url, "_blank", "noopener,noreferrer")
-  }
+  if (!isOpen) return null
 
   return (
     <AnimatePresence>
-      {isOpen && (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4"
+        onClick={onClose}
+      >
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          onClick={onClose}
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          className="w-full max-w-md"
+          onClick={(e) => e.stopPropagation()}
         >
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            className="w-full max-w-md"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Card className="bg-black/90 border-purple-500/30 backdrop-blur-md">
-              <CardHeader className="border-b border-purple-500/20">
-                <div className="flex items-center justify-between">
-                  <CardTitle className="text-white text-xl">Connect With Us</CardTitle>
-                  <Button
-                    onClick={onClose}
-                    size="sm"
-                    variant="ghost"
-                    className="text-gray-400 hover:text-white rounded-full w-8 h-8 p-0"
+          <Card className="bg-black/90 border-purple-500/30 backdrop-blur-md">
+            <CardHeader className="border-b border-purple-500/20">
+              <div className="flex items-center justify-between">
+                <CardTitle className="text-white">Connect With UltraXas</CardTitle>
+                <Button onClick={onClose} size="sm" variant="ghost" className="text-gray-400 hover:text-white">
+                  <X className="h-5 w-5" />
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent className="p-6">
+              <div className="space-y-4">
+                {socialLinks.map((link) => (
+                  <motion.a
+                    key={link.name}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    <X className="h-5 w-5" />
-                  </Button>
-                </div>
-              </CardHeader>
-
-              <CardContent className="p-6">
-                <p className="text-gray-400 mb-6 text-center">Stay connected with UltraXas Dev across all platforms</p>
-
-                <div className="space-y-4">
-                  {socialLinks.map((social, index) => (
-                    <motion.div
-                      key={social.name}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
+                    <div
+                      className={`p-4 rounded-lg bg-gradient-to-r ${link.color} bg-opacity-10 border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300`}
                     >
-                      <Button
-                        onClick={() => handleSocialClick(social.url)}
-                        className={`w-full bg-gradient-to-r ${social.color} hover:opacity-90 text-white border-0 p-4 h-auto justify-start rounded-full`}
-                        style={{
-                          boxShadow: "0 0 20px rgba(147, 51, 234, 0.3)",
-                        }}
-                      >
-                        <social.icon className="h-6 w-6 mr-4" />
-                        <div className="text-left">
-                          <div className="font-semibold">{social.name}</div>
-                          <div className="text-sm opacity-90">{social.description}</div>
+                      <div className="flex items-center space-x-4">
+                        <div className={`p-3 rounded-full bg-gradient-to-r ${link.color}`}>
+                          <link.icon className="h-6 w-6 text-white" />
                         </div>
-                      </Button>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <div className="mt-6 p-4 bg-purple-600/10 rounded-lg border border-purple-500/20">
-                  <p className="text-sm text-gray-300 text-center">
-                    Join our community and stay updated with the latest projects, tech insights, and exclusive content
-                    from UltraXas Dev!
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+                        <div className="flex-1">
+                          <h3 className="text-white font-semibold">{link.name}</h3>
+                          <p className="text-gray-400 text-sm">{link.description}</p>
+                        </div>
+                        <ExternalLink className="h-5 w-5 text-gray-400" />
+                      </div>
+                    </div>
+                  </motion.a>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         </motion.div>
-      )}
+      </motion.div>
     </AnimatePresence>
   )
 }
