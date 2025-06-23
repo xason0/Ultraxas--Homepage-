@@ -15,6 +15,7 @@ body {
   color: #fff;
   overflow-x: hidden;
   line-height: 1.6;
+  transition: all 0.3s ease;
 }
 
 .container {
@@ -1340,6 +1341,182 @@ body {
 }
 .terminal-preview {
   background: linear-gradient(to right, #000000, #059669);
+}
+
+/* Theme Styles */
+body {
+  transition: all 0.3s ease;
+}
+
+/* Default Theme */
+body.theme-default {
+  background: #000;
+  color: #fff;
+}
+
+body.theme-default .navbar {
+  background: rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+}
+
+body.theme-default .project-card,
+body.theme-default .about-card,
+body.theme-default .contact-form {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(147, 51, 234, 0.2);
+}
+
+/* Dark Theme */
+body.theme-dark {
+  background: #1a1a1a;
+  color: #e5e5e5;
+}
+
+body.theme-dark .navbar {
+  background: rgba(26, 26, 26, 0.9);
+  border-bottom: 1px solid rgba(75, 85, 99, 0.3);
+}
+
+body.theme-dark .project-card,
+body.theme-dark .about-card,
+body.theme-dark .contact-form {
+  background: rgba(31, 31, 31, 0.8);
+  border: 1px solid rgba(75, 85, 99, 0.3);
+}
+
+body.theme-dark .section-title {
+  background: linear-gradient(45deg, #9ca3af, #d1d5db);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Matrix Theme */
+body.theme-matrix {
+  background: #000;
+  color: #00ff00;
+}
+
+body.theme-matrix .navbar {
+  background: rgba(0, 0, 0, 0.9);
+  border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+body.theme-matrix .project-card,
+body.theme-matrix .about-card,
+body.theme-matrix .contact-form {
+  background: rgba(0, 20, 0, 0.8);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+body.theme-matrix .section-title {
+  background: linear-gradient(45deg, #00ff00, #00cc00);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+body.theme-matrix .hero-title {
+  background: linear-gradient(45deg, #00ff00, #00cc00, #009900);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+body.theme-matrix .nav-link:hover {
+  color: #00ff00;
+}
+
+/* Blue Ocean Theme */
+body.theme-blue {
+  background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+  color: #e2e8f0;
+}
+
+body.theme-blue .navbar {
+  background: rgba(15, 23, 42, 0.9);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+body.theme-blue .project-card,
+body.theme-blue .about-card,
+body.theme-blue .contact-form {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+body.theme-blue .section-title {
+  background: linear-gradient(45deg, #3b82f6, #06b6d4, #0ea5e9);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+body.theme-blue .hero-title {
+  background: linear-gradient(45deg, #3b82f6, #06b6d4, #0ea5e9, #3b82f6);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+body.theme-blue .nav-link:hover {
+  color: #3b82f6;
+}
+
+/* Galaxy Theme */
+body.theme-galaxy {
+  background: radial-gradient(ellipse at center, #2d1b69 0%, #11052c 50%, #000 100%);
+  color: #e879f9;
+}
+
+body.theme-galaxy .navbar {
+  background: rgba(17, 5, 44, 0.9);
+  border-bottom: 1px solid rgba(232, 121, 249, 0.3);
+}
+
+body.theme-galaxy .project-card,
+body.theme-galaxy .about-card,
+body.theme-galaxy .contact-form {
+  background: rgba(45, 27, 105, 0.6);
+  border: 1px solid rgba(232, 121, 249, 0.3);
+}
+
+body.theme-galaxy .section-title {
+  background: linear-gradient(45deg, #e879f9, #c084fc, #a855f7);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+body.theme-galaxy .hero-title {
+  background: linear-gradient(45deg, #e879f9, #c084fc, #a855f7, #e879f9);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+body.theme-galaxy .nav-link:hover {
+  color: #e879f9;
+}
+
+/* Theme Preview Updates */
+.default-preview {
+  background: linear-gradient(to right, #000000, #9333ea);
+}
+
+.matrix-preview {
+  background: linear-gradient(to right, #000000, #00ff00);
+}
+
+.blue-preview {
+  background: linear-gradient(to right, #0f172a, #3b82f6);
+}
+
+.galaxy-preview {
+  background: linear-gradient(to right, #2d1b69, #e879f9);
 }
 
 .theme-hint {

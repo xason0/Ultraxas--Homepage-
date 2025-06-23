@@ -1,5 +1,5 @@
 // Global Variables
-let currentTheme = "dark"
+let currentTheme = "default"
 let currentBackground = "brain"
 let autoTheme = false
 let chatMessages = []
@@ -31,13 +31,11 @@ function initializeWebsite() {
 
 // Theme Management
 function loadThemePreferences() {
-  const savedTheme = localStorage.getItem("ultraxas-theme")
+  const savedTheme = localStorage.getItem("ultraxas-theme") || "default"
   const savedAutoTheme = localStorage.getItem("ultraxas-auto-theme") === "true"
 
-  if (savedTheme) {
-    currentTheme = savedTheme
-    applyTheme(savedTheme)
-  }
+  currentTheme = savedTheme
+  applyTheme(savedTheme)
 
   autoTheme = savedAutoTheme
   updateAutoThemeButton()
@@ -49,7 +47,7 @@ function loadThemePreferences() {
 
 function applyTheme(theme) {
   // Remove all theme classes
-  document.body.classList.remove("theme-dark", "theme-light", "theme-cyberpunk", "theme-terminal")
+  document.body.classList.remove("theme-default", "theme-dark", "theme-matrix", "theme-blue", "theme-galaxy")
 
   // Add new theme class
   document.body.classList.add(`theme-${theme}`)
@@ -57,14 +55,15 @@ function applyTheme(theme) {
   // Update theme indicator
   const indicator = document.getElementById("theme-indicator")
   const themeEmojis = {
+    default: "🌟",
     dark: "🌙",
-    light: "☀️",
-    cyberpunk: "🤖",
-    terminal: "💚",
+    matrix: "🟢",
+    blue: "💙",
+    galaxy: "🌌",
   }
 
   if (indicator) {
-    indicator.textContent = themeEmojis[theme] || "🌙"
+    indicator.textContent = themeEmojis[theme] || "🌟"
   }
 
   // Update active theme option
@@ -74,6 +73,8 @@ function applyTheme(theme) {
       option.classList.add("active")
     }
   })
+
+  console.log(`Theme changed to: ${theme}`)
 }
 
 function changeTheme(theme) {
@@ -86,10 +87,11 @@ function changeTheme(theme) {
 
 function getThemeName(theme) {
   const names = {
+    default: "Default 🌟",
     dark: "Dark Mode 🌙",
-    light: "Light Mode ☀️",
-    cyberpunk: "Cyberpunk 🤖",
-    terminal: "Terminal 💚",
+    matrix: "Matrix 🟢",
+    blue: "Blue Ocean 💙",
+    galaxy: "Galaxy 🌌",
   }
   return names[theme] || "Unknown Theme"
 }
@@ -116,7 +118,7 @@ function updateAutoThemeButton() {
 
 function handleAutoTheme() {
   const hour = new Date().getHours()
-  const newTheme = hour >= 6 && hour < 18 ? "light" : "dark"
+  const newTheme = hour >= 6 && hour < 18 ? "default" : "dark"
 
   if (newTheme !== currentTheme) {
     changeTheme(newTheme)
@@ -705,7 +707,7 @@ function setupKeyboardShortcuts() {
 }
 
 function cycleTheme() {
-  const themes = ["dark", "light", "cyberpunk", "terminal"]
+  const themes = ["default", "dark", "matrix", "blue", "galaxy"]
   const currentIndex = themes.indexOf(currentTheme)
   const nextIndex = (currentIndex + 1) % themes.length
   changeTheme(themes[nextIndex])

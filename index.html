@@ -381,21 +381,25 @@
                 <button class="auto-theme-btn" onclick="toggleAutoTheme()" id="auto-theme-btn">⏰ Auto</button>
             </div>
             <div class="theme-grid">
+                <button class="theme-option active" data-theme="default" onclick="changeTheme('default')">
+                    <div class="theme-preview default-preview"></div>
+                    <span>🌟 Default</span>
+                </button>
                 <button class="theme-option" data-theme="dark" onclick="changeTheme('dark')">
                     <div class="theme-preview dark-preview"></div>
                     <span>🌙 Dark Mode</span>
                 </button>
-                <button class="theme-option" data-theme="light" onclick="changeTheme('light')">
-                    <div class="theme-preview light-preview"></div>
-                    <span>☀️ Light Mode</span>
+                <button class="theme-option" data-theme="matrix" onclick="changeTheme('matrix')">
+                    <div class="theme-preview matrix-preview"></div>
+                    <span>🟢 Matrix</span>
                 </button>
-                <button class="theme-option" data-theme="cyberpunk" onclick="changeTheme('cyberpunk')">
-                    <div class="theme-preview cyberpunk-preview"></div>
-                    <span>🤖 Cyberpunk</span>
+                <button class="theme-option" data-theme="blue" onclick="changeTheme('blue')">
+                    <div class="theme-preview blue-preview"></div>
+                    <span>💙 Blue Ocean</span>
                 </button>
-                <button class="theme-option" data-theme="terminal" onclick="changeTheme('terminal')">
-                    <div class="theme-preview terminal-preview"></div>
-                    <span>💚 Terminal</span>
+                <button class="theme-option" data-theme="galaxy" onclick="changeTheme('galaxy')">
+                    <div class="theme-preview galaxy-preview"></div>
+                    <span>🌌 Galaxy</span>
                 </button>
             </div>
             <p class="theme-hint">Press Ctrl + T to cycle themes</p>
